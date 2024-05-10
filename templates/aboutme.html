@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/about.css'%}" />
+</head>
+<section class="bg-secondary_bg">
+  <div class="container mx-auto text-center lg:p-10">
+    <div class="grid md:grid-cols-2 lg:gap-20 gap-4">
+      <div class="block md:px-0 px-6">
+        <img src="{% static 'assets/sadrish.jpg' %}" alt="" />
+      </div>
+      <main>
+        <section class="about-section education">
+            <h2>Education</h2>
+            <ul>
+                <li>Bachelor's Degree in Computer Science - University XYZ (Year)</li>
+                <li>High School Diploma - XYZ High School (Year)</li>
+            </ul>
+        </section>
+
+        <section class="about-section work-experience">
+            <h2>Work Experience</h2>
+            <ul>
+                <li>Software Engineer - Company XYZ (Year - Present)</li>
+                <li>Intern - Company ABC (Year)</li>
+            </ul>
+        </section>
+
+        <section class="about-section skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Programming Languages: Python, JavaScript, Java</li>
+                <li>Web Development: HTML, CSS, JavaScript, Django</li>
+                <li>Database: SQL, MongoDB</li>
+                <!-- Add more skills here -->
+            </ul>
+        </section>
+
+        <section class="about-section other-activities">
+            <h2>Other Activities</h2>
+            <ul>
+                <li>Volunteer at XYZ Organization</li>
+                <li>Member of XYZ Club/Society</li>
+                <!-- Add more activities here -->
+            </ul>
+        </section>
+
+        <section class="about-section hobbies">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Reading</li>
+                <li>Traveling</li>
+                <li>Photography</li>
+                <!-- Add more hobbies here -->
+            </ul>
+        </section>
+    </main>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

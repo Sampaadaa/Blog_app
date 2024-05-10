@@ -1,0 +1,107 @@
+<!-- blog.html -->
+{% extends "base.html" %}
+{% block content %}
+{% load static%}
+
+    <section class="">
+      <div class="container mx-auto min-h-[60vh] my-10 pb-10 relative">
+        <div class="flex flex-col mb-20 items-center text-center">
+          <h1
+            class="text-3xl font-bold leading-[48px] mb-4 max-w-2xl text-primary"
+          >
+            My Blogs
+          </h1>
+          <!-- <p class="text-gray-500 text-lg max-w-2xl">
+            We’re proud to be a diverse, global team united by values including
+            openness, positivity, and drive that stems from our founders. No
+            matter how much our teams grow, we still feel like family.
+          </p> -->
+        </div>
+
+        <div
+          class="grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-10 mb-20"
+        >
+        {% if post_list %}
+          {% for post in post_list %}
+          <div
+            class="bg-slate-100 rounded-xl overflow-hidden relative cursor-pointer"
+          >
+            <div
+              class="w-full aspect-video bg-red-500 rounded-xl overflow-hidden"
+            >
+              <img src="{{ post.image.url }}"  alt="Blog Primary Image" />
+            </div>
+            <div class="py-4 px-6">
+              <h5
+                class="text-xl font-semibold text-gray-600 mb-2.5 line-clamp-2"
+              >
+              {{ post.title }} 
+              </h5>
+              <div class="flex gap-5 items-center text-xs text-gray-400 mb-5">
+                <span
+                  >By <span class="text-gray-600">{{ post.author }}</span></span
+                >
+                <div class="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    fill="currentColor"
+                    class="bi bi-clock"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"
+                    />
+                    <path
+                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"
+                    />
+                  </svg>
+                  <span>{{ post.created_at|date:"F j, Y" }}</span>
+                </div>
+              </div>
+              <!-- <p class="font-light text-gray-500 mb-4 line-clamp-2">
+                Empower Your Impact in Occupational Safety and Health with OSHPN! 🌟
+              </p> -->
+            </div>
+
+            <a
+              href="{% url 'blog_detail' post.pk %}"
+              class="after:absolute after:inset-0"
+              aria-label="Go to Detail Page"
+            ></a>
+          </div>
+        {% endfor %}  
+      {% else %}
+        <p><b>comming soon..</b></p>
+      {% endif %}
+      </div>
+      
+      {% block pagination %} 
+      <div class="absolute bottom-0 right-0 flex items-center pagination">
+      
+        
+      {% for page_number in page_obj.paginator.page_range   %}
+   
+      <a
+        href= "{% url 'blog-terminate' page_number %} " 
+    
+        {% if page_number == page_obj.number %}
+      class="h-10 w-10 flex items-center justify-center bg-slate-100 active "{% if page_number == page_obj.number %}current{% endif %}" "
+      {% endif %}
+      class="h-10 w-10 flex items-center justify-center bg-slate-100 "{% if page_number == page_obj.number %}current{% endif %}" "
+    >
+        
+        {{page_number}}
+     
+      </a>
+      {% endfor %} 
+      </div>
+      {% endblock %}
+
+
+    </section>
+
+    {% endblock content %}
+
+    

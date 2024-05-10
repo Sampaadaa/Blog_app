@@ -1,0 +1,35 @@
+main {
+    padding: 20px;
+}
+
+.about-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.about-section h2 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.about-section ul {
+    padding-left: 0; 
+}
+
+.about-section ul li {
+    color: #666; /* Apply color to li */
+    margin-bottom: 5px;
+    list-style-type: none; }
+
+.about-section ul li::before {
+    content: ""; 
+}

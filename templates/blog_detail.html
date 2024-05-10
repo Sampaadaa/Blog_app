@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+    <section>
+      <div class="container mx-auto md:my-10 my-4  pb-10 relative">
+        <div class="max-w-5xl mx-auto p-4">
+          <h1
+            class="md:text-4xl text-3xl font-semibold text-gray-600 mb-2.5 md:leading-[46px]"
+          >
+          {{ post.title }} 
+          </h1>
+          <div class="flex gap-5 items-center text-xs text-gray-400 mb-6">
+            <span>By <span class="text-gray-600">{{ post.author }}</span></span>
+            <div class="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                fill="currentColor"
+                class="bi bi-clock"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"
+                />
+                <path
+                  d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"
+                />
+              </svg>
+              <span>{{ post.created_at|date:"F j, Y" }}</span>
+            </div>
+          </div>
+          <div
+            class="w-full aspect-video text-center rounded-xl overflow-hidden mb-4"
+          >
+            <img
+              src="{{post.image.url }}" 
+              alt="Blog Primary Image"
+              class="mx-auto w-auto h-full object-content object-center"
+            />
+          </div>
+
+          <div class="md:p-6 md:p-4 p-2"  >
+            {{ post.description|safe }}
+            
+            
+          </div>   
+          
+          
+      </div>
+    </section>
+
+    {% endblock content %}
+
